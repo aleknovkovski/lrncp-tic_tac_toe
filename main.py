@@ -1,3 +1,25 @@
+import time,sys
+ 
+def typingPrint(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  
+def typingInput(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  value = input()  
+  return value
+
+def print_instructions():
+    typingPrint("You enter a move by giving coordinates as 'x y'\n")
+    typingPrint("We are playing on a 3x3 grid of 9 cells total\n")
+    typingPrint("Upper most left cell is 1 1, bottom right is 3 3\n")
+    typingPrint("First to go is Player X\n")
+
 # Functions init
 
 digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -86,7 +108,7 @@ def make_a_move():
     grid = [row_1, row_2, row_3]
 
     while not valid_move:
-        coordinates = input("Enter the coordinates: ").split()
+        coordinates = typingInput(f"Player {current_player}, enter your move coordinates: ").split()
         if are_numbers(coordinates):
 
             # If numbers, convert to list of integers
@@ -133,13 +155,9 @@ row_3 = [" ", " ", " "]
 
 # > Game Time
 print_matrix()
-
-print("You enter a move by giving coordinates as 'x y'")
-print("We are playing on a 3x3 grid of 9 cells total")
-print("Upper most left cell is 1 1, bottom right is 3 3")
-print("First to go is Player X")
+print_instructions()
 
 while has_empty_cells() and not game_over:
     make_a_move()
 
-print(winner)
+typingPrint(winner)
