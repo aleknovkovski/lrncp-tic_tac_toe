@@ -136,7 +136,7 @@ print_matrix()
 
 print("You enter a move by giving coordinates as 'x y'")
 print("We are playing on a 3x3 grid of 9 cells total")
-print("So upper most left cell is 1 1, bottom right is 3 3")
+print("Upper most left cell is 1 1, bottom right is 3 3")
 print("First to go is Player X")
 
 while has_empty_cells() and not game_over:
